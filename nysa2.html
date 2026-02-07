@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nysa’s Rose 🌹</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+ margin:0;
+ height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ background:linear-gradient(135deg,#ff4d6d,#ff9aa2);
+ font-family: Arial, sans-serif;
+ overflow:hidden;
+}
+
+.card{
+ background:white;
+ padding:25px;
+ border-radius:20px;
+ text-align:center;
+ box-shadow:0 10px 30px rgba(0,0,0,0.2);
+ max-width:340px;
+ position:relative;
+ z-index:2;
+}
+
+.rose{
+ font-size:90px;
+ animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+ 0%{transform:translateY(0)}
+ 50%{transform:translateY(-14px)}
+ 100%{transform:translateY(0)}
+}
+
+.btn{
+ margin:8px;
+ padding:12px 18px;
+ border:none;
+ border-radius:12px;
+ font-size:16px;
+}
+
+.yes{
+ background:#ff4d6d;
+ color:white;
+}
+
+.no{
+ background:#ddd;
+}
+
+.heart{
+ position:absolute;
+ font-size:20px;
+ animation: fall 4s linear infinite;
+}
+
+@keyframes fall{
+ 0%{transform:translateY(-10vh);opacity:1}
+ 100%{transform:translateY(110vh);opacity:0}
+}
+
+#result{
+ margin-top:10px;
+ font-weight:bold;
+ color:#ff4d6d;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="rose">🌹</div>
+  <h2>Happy Rose Day Nysa ❤️</h2>
+  <p>This virtual rose is specially for you ✨</p>
+
+  <h3>Will you accept this rose?</h3>
+
+  <button class="btn yes" onclick="accepted()">Yes 💖</button>
+  <button class="btn no" id="noBtn" onclick="runAway()">No 🙈</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+
+alert("🌹 Happy Rose Day Nysa 🌹");
+
+function accepted(){
+ document.getElementById("result").innerHTML =
+ "Yayyy 😍 Rose accepted! Mission successful 💘";
+}
+
+function runAway(){
+ const btn=document.getElementById("noBtn");
+ btn.style.position="absolute";
+ btn.style.left=Math.random()*200+"px";
+ btn.style.top=Math.random()*200+"px";
+}
+
+function hearts(){
+ const heart=document.createElement("div");
+ heart.className="heart";
+ heart.innerHTML="❤️";
+ heart.style.left=Math.random()*100+"vw";
+ heart.style.animationDuration=(3+Math.random()*2)+"s";
+ document.body.appendChild(heart);
+ setTimeout(()=>heart.remove(),4000);
+}
+
+setInterval(hearts,400);
+
+</script>
+
+</body>
+</html>
